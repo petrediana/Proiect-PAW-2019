@@ -29,7 +29,7 @@ namespace ProiectPaw
             //Close();
         }
 
-        private void enter_denumire(object sender, KeyEventArgs e)
+        private void Enter_denumire(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -57,15 +57,15 @@ namespace ProiectPaw
             }
         }       
 
-        private void enter_cui(object sender, KeyEventArgs e)
+        private void Enter_cui(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
             {
                 string txt = CUItxt.Text;
                 try
                 {
-                    if (txt.Length != 11 || txt.Substring(0, 2) != "RO" || txt.Substring(10, 10) != "C"
-                        || !txt.Substring(2, 10).All(char.IsDigit))
+                    if (txt.Length != 12 || txt.Substring(0, 2) != "RO"
+                        || !txt.Substring(2, 9).All(char.IsDigit))
                         throw new ExceptieCUI();
                     else
                     {

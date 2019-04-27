@@ -31,17 +31,17 @@ namespace ProiectPaw
                     double.Parse(cuvinte[6]), double.Parse(cuvinte[7])), cuvinte[8]));
             }
 
-            foreach(var unitate in unitati)
-            {
-                Console.WriteLine(unitate);
-            }
+            //foreach(var unitate in unitati)
+            //{
+            //    Console.WriteLine(unitate);
+            //}
 
-            Application.Run(new PaginaStart(unitati));
+            Application.Run(new PaginaStartForm(unitati));
 
-            string txt = "RO2222222222C";
-            Console.WriteLine(txt.Substring(2, 10).All(char.IsDigit));
+            string txt = "RO222222222C";
+            //Console.WriteLine(txt.Substring(2, 10).All(char.IsDigit));
+            Console.WriteLine(txt.Substring(2, 9));
 
-            //Console.WriteLine(linii[1]);
         }
     }
 }
