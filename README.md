@@ -1,7 +1,7 @@
 # Proiect-PAW-2019
 Tema proiectului: Prelucrări statistice
 
-*Cerințe*
+*Cerințe*:
 
 1. Definirea claselor necesare aplicației
 2. Formulare pentru înregistrarea / modificarea datelor gestionate de către aplicație
