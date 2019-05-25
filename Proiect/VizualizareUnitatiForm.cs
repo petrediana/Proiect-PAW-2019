@@ -13,6 +13,7 @@ namespace ProiectPaw
     public partial class VizualizareUnitatiForm : Form
     {
         public List<UnitateAgricola> Unitati = new List<UnitateAgricola>();
+        const string CaleFisier = @"C:\Users\Peanutt\Desktop\VS\C#\ProiectPaw\ProiectPaw\date.txt";
 
         public VizualizareUnitatiForm(List<UnitateAgricola> unitati)
         {
@@ -153,13 +154,45 @@ namespace ProiectPaw
                         double.Parse(listView1.SelectedItems[0].SubItems[7].Text),
                         double.Parse(listView1.SelectedItems[0].SubItems[8].Text));
 
+                    string CUI = listView1.SelectedItems[0].SubItems[1].Text;
                     ModificaDateForm modificaDate = new ModificaDateForm(listView1.SelectedItems[0].Text,
-                        adr, ind);
+                        adr, ind, CUI);
 
                     modificaDate.ShowDialog();
+
+                    foreach(var unitate in Unitati)
+                    {
+                        if(unitate.CUI == listView1.SelectedItems[0].SubItems[1].Text)
+                        {
+                            unitate.Denumire = modificaDate.Rezultat.Denumire;
+                            unitate._Adresa.Judet = modificaDate.Rezultat._Adresa.Judet;
+                            unitate._Adresa.Strada = modificaDate.Rezultat._Adresa.Strada;
+                            unitate._Adresa.Numar = modificaDate.Rezultat._Adresa.Numar;
+                            unitate._Indicatori.TerenArabil = modificaDate.Rezultat._Indicatori.TerenArabil;
+                            unitate._Indicatori.Vii = modificaDate.Rezultat._Indicatori.Vii;
+                            unitate._Indicatori.Livezi = modificaDate.Rezultat._Indicatori.Livezi;
+                            unitate._Indicatori.Pasuni = modificaDate.Rezultat._Indicatori.Pasuni;
+
+                            /*System.IO.FileStream fileStream = System.IO.File.Open(CaleFisier,
+                                        System.IO.FileMode.Open, System.IO.FileAccess.Write);
+                            fileStream.SetLength(0);
+                            fileStream.Close();
+
+                            //System.IO.File.WriteAllText(CaleFisier, string.Empty);
+                            MessageBox.Show(string.Format("S a sters"));
+                            */
+                        }
+                    }
+
+
                 }
                 
             }
+        }
+
+        private void inchideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProiectPaw
 {
-    public class Adresa
+    public class Adresa : ICloneable, IComparable<Adresa>
     {
         const string Tara = "Romania";
         private string _judet;
@@ -45,5 +45,21 @@ namespace ProiectPaw
                 Tara, _judet, _strada, _numar);
         }
 
+        public object Clone()
+        {
+            Adresa clona = (Adresa)this.MemberwiseClone();
+            Adresa newADress = new Adresa();
+
+            newADress.Judet = clona.Judet;
+            newADress.Strada = clona.Strada;
+            newADress.Numar = clona.Numar;
+
+            return newADress;
+        }
+
+        public int CompareTo(Adresa other)
+        {
+            return this._numar < other.Numar ? -1 : 1;
+        }
     }
 }

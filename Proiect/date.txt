@@ -1,3 +1,4 @@
-﻿2
+3
 Societatea Ffrgh,Iasi,Florilor,14,20,15,10,0,RO111111111C
 Societatea Colk,Brasov,Runelor,250,10,150,65,150,RO222222222C
+Societatea ASDFGH,Brasov,Zeilor,175,15,100,25,70,RO010101010Z
